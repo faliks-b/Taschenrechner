@@ -93,6 +93,9 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(0)
             self.counter = 0
+        if self.operator == "pow-" or self.operator == "pow":
+            self.ui.Display.display(0)
+            self.on_istgleich_click()
 
 
 
@@ -104,6 +107,9 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(1)
             self.counter = 0
+        if self.operator == "pow-" or self.operator == "pow":
+            self.ui.Display.display(1)
+            self.on_istgleich_click()
 
 
     def on_zahl2_click(self):
@@ -114,7 +120,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(2)
             self.counter = 0
-        if self.operator == "pow-":
+        if self.operator == "pow-" or self.operator == "pow":
             self.ui.Display.display(2)
             self.on_istgleich_click()
 
@@ -127,6 +133,9 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(3)
             self.counter = 0
+        if self.operator == "pow-" or self.operator == "pow":
+            self.ui.Display.display(3)
+            self.on_istgleich_click()
 
 
     def on_zahl4_click(self):
@@ -137,6 +146,9 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(4)
             self.counter = 0
+        if self.operator == "pow-" or self.operator == "pow":
+            self.ui.Display.display(4)
+            self.on_istgleich_click()
 
 
     def on_zahl5_click(self):
@@ -147,6 +159,9 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(5)
             self.counter = 0
+        if self.operator == "pow-" or self.operator == "pow":
+            self.ui.Display.display(5)
+            self.on_istgleich_click()
 
 
 
@@ -158,6 +173,10 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(6)
             self.counter = 0
+        if self.operator == "pow-" or self.operator == "pow":
+            self.ui.Display.display(6)
+            self.on_istgleich_click()
+
 
 
     def on_zahl7_click(self):
@@ -168,18 +187,24 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(7)
             self.counter = 0
+        if self.operator == "pow-" or self.operator == "pow":
+            self.ui.Display.display(7)
+            self.on_istgleich_click()
 
 
     def on_zahl8_click(self):
 
 
-         if self.counter != 1:
+        if self.counter != 1:
             zahl8 = self.concat(self.ui.Display.intValue(),8)
             self.ui.Display.display(zahl8)
 
-         if self.counter == 1:
+        if self.counter == 1:
             self.ui.Display.display(8)
             self.counter = 0
+        if self.operator == "pow-" or self.operator == "pow":
+            self.ui.Display.display(8)
+            self.on_istgleich_click()
 
 
 
@@ -192,15 +217,9 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.Display.display(9)
             self.counter = 0
 
-        if self.operator == "pow-":
+        if self.operator == "pow-" or self.operator == "pow":
             self.ui.Display.display(9)
             self.on_istgleich_click()
-
-
-
-
-
-
 
     #Grundfunktionen
 
@@ -287,6 +306,7 @@ class MainWindow(QtWidgets.QMainWindow):
         elif self.operator == "pow":
             if self.Result != 0:
                 self.Result = math.pow(self.Result, self.Eingabe1)
+
             else:
                 self.Result = math.pow(self.Eingabe1, self.Eingabe2)
             self.ui.Display.display(self.Result)
@@ -324,10 +344,10 @@ class MainWindow(QtWidgets.QMainWindow):
         cube = self.ui.Display.value()
         self.ui.Display.display(cube*cube*cube)
     def on_pow_click(self):
-
         self.operator = "pow"
         self.counter = 1
         self.Eingabe1 = self.ui.Display.value()
+
     def on_sqr_click(self):
         sqr = self.ui.Display.value()
         self.ui.Display.display(math.sqrt(sqr))
