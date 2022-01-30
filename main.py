@@ -114,6 +114,9 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(2)
             self.counter = 0
+        if self.operator == "pow-":
+            self.ui.Display.display(2)
+            self.on_istgleich_click()
 
 
     def on_zahl3_click(self):
@@ -189,6 +192,13 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.Display.display(9)
             self.counter = 0
 
+        if self.operator == "pow-":
+            self.ui.Display.display(9)
+            self.on_istgleich_click()
+
+
+
+
 
 
 
@@ -211,11 +221,17 @@ class MainWindow(QtWidgets.QMainWindow):
 
 
     def on_subtraktion_click(self):
-        self.on_istgleich_click()
-        self.operator = "-"
-        self.counter = 1
+        if self.operator == "pow":
+            self.operator+="-"
 
-        self.Eingabe1 = self.current_state_of_display()
+
+
+        else:
+            self.on_istgleich_click()
+            self.operator = "-"
+            self.counter = 1
+
+            self.Eingabe1 = self.current_state_of_display()
 
     def on_division_click(self):
         self.on_istgleich_click()
@@ -240,6 +256,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.Result = self.Eingabe1 + self.Eingabe2
             self.ui.Display.display(self.Result)
         elif self.operator =="-":
+
             if self.Result != 0:
                 self.Result -= self.Eingabe1
             else:
@@ -250,6 +267,10 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.Result *= self.Eingabe1
             else:
                 self.Result = self.Eingabe1 * self.Eingabe2
+            self.ui.Display.display(self.Result)
+        elif self.operator == "pow-":
+
+            self.Result = self.Eingabe1 ** (0 - self.Eingabe2)
             self.ui.Display.display(self.Result)
         elif self.operator == "/":
 
@@ -277,8 +298,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.Display.display(self.Result)
 
 
-
-        self.resetInput()
+        if self.operator != "pow":
+            self.resetInput()
         self.ui.Display.display(self.ui.Display.value())
 
 #Speziell implementierte Funktionen
@@ -303,6 +324,7 @@ class MainWindow(QtWidgets.QMainWindow):
         cube = self.ui.Display.value()
         self.ui.Display.display(cube*cube*cube)
     def on_pow_click(self):
+
         self.operator = "pow"
         self.counter = 1
         self.Eingabe1 = self.ui.Display.value()

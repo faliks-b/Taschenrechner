@@ -1,4 +1,4 @@
-x^y: minus ist noch problem
+Klammern raus
 e: 2,718281828459045
 e^y
 %: operation implementieren
