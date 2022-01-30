@@ -60,6 +60,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         #Fakultät
         self.ui.fak.clicked.connect(self.on_fak_click)
+        #exponentialfunktion
         self.ui.exp.clicked.connect(self.on_exp_click)
 
         #Potenzen
@@ -285,9 +286,10 @@ class MainWindow(QtWidgets.QMainWindow):
         fak = self.ui.Display.value()
         fak = math.factorial(fak)
         if fak > 2147483647:
-            self.ui.Display.display.value("{:e}".format(fak))
+            fak = "{:e}".format(fak)
+            self.ui.Display.display(fak)
         else:
-            self.ui.Display.display(math.factorial(fak))
+            self.ui.Display.display(fak)
 
     def on_exp_click(self):
         exp = self.ui.Display.value()
@@ -326,7 +328,16 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.Display.display(math.pi)
     def on_fib_click(self):
         fibo = self.ui.Display.value()
-        self.ui.Display.display(self.fib(fibo))
+        fibo = self.fib(fibo)
+
+        if fibo > 2147483647:
+            fibo = "{:e}".format(fibo)
+            self.ui.Display.display(fibo)
+        else:
+            self.ui.Display.display(fibo)
+
+
+
 
 
 
@@ -359,12 +370,16 @@ class MainWindow(QtWidgets.QMainWindow):
     def nteWurzel(self,a,b):
         return a**(1/float(b))
 
-    def fib(self,a):
-        if(a == 0):
-            return 0
-        elif(a==1):
-            return 1
-        return self.fib(a-1) + self.fib(a-2)
+
+    def fib(self,a ):
+        base = {0: 0, 1: 1}
+
+        def fibo(a):
+            if a not in base:
+                base[a] = fibo(a - 1) + fibo(a - 2)
+            return base[a]
+
+        return fibo(a)
 
 
 
