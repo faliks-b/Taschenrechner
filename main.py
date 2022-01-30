@@ -283,7 +283,11 @@ class MainWindow(QtWidgets.QMainWindow):
 #Speziell implementierte Funktionen
     def on_fak_click(self):
         fak = self.ui.Display.value()
-        self.ui.Display.display(math.factorial(fak))
+        fak = math.factorial(fak)
+        if fak > 2147483647:
+            self.ui.Display.display.value("{:e}".format(fak))
+        else:
+            self.ui.Display.display(math.factorial(fak))
 
     def on_exp_click(self):
         exp = self.ui.Display.value()
