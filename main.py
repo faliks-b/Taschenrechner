@@ -79,6 +79,12 @@ class MainWindow(QtWidgets.QMainWindow):
         #Fibonacci
         self.ui.fib.clicked.connect(self.on_fib_click)
 
+        self.ui.ggt.clicked.connect(self.on_ggt_click)
+        self.ui.kgv.clicked.connect(self.on_kgv_click)
+
+        self.ui.euler.clicked.connect(self.on_euler_click)
+
+        self.ui.eulerhochx.clicked.connect(self.on_eulerhochx_click)
 
     # Methoden die die Eingaben von Zahlen hintereinader ermöglichen
     #Problem and der add Funktion ist dass die zweite Eingabe erst beim zweiten + überschrieben wird
@@ -93,7 +99,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(0)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow":
+        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv":
             self.ui.Display.display(0)
             self.on_istgleich_click()
 
@@ -107,7 +113,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(1)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow":
+        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv":
             self.ui.Display.display(1)
             self.on_istgleich_click()
 
@@ -120,7 +126,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(2)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow":
+        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv":
             self.ui.Display.display(2)
             self.on_istgleich_click()
 
@@ -133,7 +139,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(3)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow":
+        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv":
             self.ui.Display.display(3)
             self.on_istgleich_click()
 
@@ -146,7 +152,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(4)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow":
+        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv":
             self.ui.Display.display(4)
             self.on_istgleich_click()
 
@@ -159,7 +165,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(5)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow":
+        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv":
             self.ui.Display.display(5)
             self.on_istgleich_click()
 
@@ -173,7 +179,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(6)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow":
+        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv":
             self.ui.Display.display(6)
             self.on_istgleich_click()
 
@@ -187,7 +193,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(7)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow":
+        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv":
             self.ui.Display.display(7)
             self.on_istgleich_click()
 
@@ -202,13 +208,14 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(8)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow":
+        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv":
             self.ui.Display.display(8)
             self.on_istgleich_click()
 
 
 
     def on_zahl9_click(self):
+
         if self.counter != 1:
             zahl9 = self.concat(self.ui.Display.intValue(), 9)
             self.ui.Display.display(zahl9)
@@ -217,7 +224,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.Display.display(9)
             self.counter = 0
 
-        if self.operator == "pow-" or self.operator == "pow":
+        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv" or self.operator == "e^x":
+
             self.ui.Display.display(9)
             self.on_istgleich_click()
 
@@ -291,6 +299,18 @@ class MainWindow(QtWidgets.QMainWindow):
 
             self.Result = self.Eingabe1 ** (0 - self.Eingabe2)
             self.ui.Display.display(self.Result)
+        elif self.operator == "ggt":
+
+            self.Result = math.gcd(int(self.Eingabe1),int(self.Eingabe2))
+
+            self.ui.Display.display(self.Result)
+
+        elif self.operator == "kgv":
+
+
+            self.Result = int(self.Eingabe1 * self.Eingabe2) / math.gcd(int(self.Eingabe1),int(self.Eingabe2))
+
+            self.ui.Display.display(self.Result)
         elif self.operator == "/":
 
             if self.Result != 0:
@@ -315,6 +335,10 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.Result = self.nteWurzel(self.Result, self.Eingabe1)
             else:
                 self.Result = self.nteWurzel(self.Eingabe1, self.Eingabe2)
+            self.ui.Display.display(self.Result)
+        elif self.operator == "e^x":
+
+            self.Result = self.Eingabe1**self.Eingabe2
             self.ui.Display.display(self.Result)
 
 
@@ -377,6 +401,26 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.Display.display(fibo)
         else:
             self.ui.Display.display(fibo)
+    def on_ggt_click(self):
+        self.operator = "ggt"
+        self.counter = 1
+        self.Eingabe1 = self.ui.Display.value()
+
+    def on_kgv_click(self):
+        self.operator = "kgv"
+        self.counter = 1
+        self.Eingabe1 = self.ui.Display.value()
+
+    def on_euler_click(self):
+        self.ui.Display.display(2.718281828459045)
+
+    def on_eulerhochx_click(self):
+        self.operator = "e^x"
+        self.counter=1
+        self.ui.Display.display(2.718281828459045)
+        self.Eingabe1 = self.ui.Display.value()
+
+
 
 
 
