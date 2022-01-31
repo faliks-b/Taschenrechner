@@ -85,6 +85,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.euler.clicked.connect(self.on_euler_click)
 
         self.ui.eulerhochx.clicked.connect(self.on_eulerhochx_click)
+        self.ui.negation.clicked.connect(self.on_negation_click)
+        self.ui.betrag.clicked.connect(self.on_betrag_click)
 
     # Methoden die die Eingaben von Zahlen hintereinader ermöglichen
     #Problem and der add Funktion ist dass die zweite Eingabe erst beim zweiten + überschrieben wird
@@ -99,7 +101,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(0)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv":
+        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv" or self.operator == "e^x":
             self.ui.Display.display(0)
             self.on_istgleich_click()
 
@@ -113,7 +115,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(1)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv":
+        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv" or self.operator == "e^x":
             self.ui.Display.display(1)
             self.on_istgleich_click()
 
@@ -126,7 +128,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(2)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv":
+        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv" or self.operator == "e^x":
             self.ui.Display.display(2)
             self.on_istgleich_click()
 
@@ -139,7 +141,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(3)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv":
+        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv" or self.operator == "e^x":
             self.ui.Display.display(3)
             self.on_istgleich_click()
 
@@ -152,7 +154,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(4)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv":
+        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv" or self.operator == "e^x":
             self.ui.Display.display(4)
             self.on_istgleich_click()
 
@@ -165,7 +167,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(5)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv":
+        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv" or self.operator == "e^x":
             self.ui.Display.display(5)
             self.on_istgleich_click()
 
@@ -179,7 +181,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(6)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv":
+        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv" or self.operator == "e^x":
             self.ui.Display.display(6)
             self.on_istgleich_click()
 
@@ -193,7 +195,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(7)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv":
+        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv" or self.operator == "e^x":
             self.ui.Display.display(7)
             self.on_istgleich_click()
 
@@ -208,7 +210,7 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.counter == 1:
             self.ui.Display.display(8)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv":
+        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv" or self.operator == "e^x":
             self.ui.Display.display(8)
             self.on_istgleich_click()
 
@@ -420,6 +422,17 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.Display.display(2.718281828459045)
         self.Eingabe1 = self.ui.Display.value()
 
+
+    def on_negation_click(self):
+        if self.ui.Display.value() >= 0:
+            self.ui.Display.display(0-self.ui.Display.value())
+        else:
+            self.ui.Display.display(0-(self.ui.Display.value()))
+
+
+    def on_betrag_click(self):
+        if self.ui.Display.value() < 0:
+            self.ui.Display.display(0-(self.ui.Display.value()))
 
 
 

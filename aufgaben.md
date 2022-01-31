@@ -1,7 +1,5 @@
 
 %: operation implementieren
-betrag: implementieren
-+/-: implementieren
 logaristmusfunktionen beschriftungen
 ysqrt(n) beschriftung und implementieren
 3-wurzel implementieren
@@ -17,4 +15,6 @@ e^x implementiert
 ggt implementiert
 kgv implementiert
 klammern aus layout rausgenommen
+x/- implementiert
+betrag implementiert
 
