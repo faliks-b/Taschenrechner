@@ -253,7 +253,7 @@ class Ui_MainWindow(object):
         self.exp.setText(_translate("MainWindow", "exp(x)"))
         self.logxy.setText(_translate("MainWindow", "logxy"))
         self.log10.setText(_translate("MainWindow", "log10"))
-        self.natlogarithmus.setText(_translate("MainWindow", "ln"))
+        self.natlogarithmus.setText(_translate("MainWindow", "log"))
         self.fak.setText(_translate("MainWindow", "n!"))
         self.kgv.setText(_translate("MainWindow", "KgV"))
         self.ggt.setText(_translate("MainWindow", "ggT"))

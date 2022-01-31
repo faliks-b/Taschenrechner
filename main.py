@@ -70,6 +70,8 @@ class MainWindow(QtWidgets.QMainWindow):
         #Wurzel
         self.ui.wurzel.clicked.connect(self.on_sqr_click)
         self.ui.ntewurzel.clicked.connect(self.on_ntewurzel_click)
+        self.ui.drittewurzel.clicked.connect(self.on_drittewurzel_click)
+        self.ui.viertewurzel.clicked.connect(self.on_viertewurzel_click)
         #Sin, Cos, Tan
         self.ui.sinus.clicked.connect(self.on_sinus_click)
         self.ui.cosinus.clicked.connect(self.on_cosinus_click)
@@ -89,6 +91,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.betrag.clicked.connect(self.on_betrag_click)
         self.ui.standardhyperbel.clicked.connect(self.on_standardhyperbel_click)
 
+        self.ui.log10.clicked.connect(self.on_log10_click)
+        self.ui.natlogarithmus.clicked.connect(self.on_natlog_click)
+        self.ui.logxy.clicked.connect(self.on_logxy_click)
+
+        self.ui.prozent.clicked.connect(self.on_prozent_click)
+
     # Methoden die die Eingaben von Zahlen hintereinader ermöglichen
     #Problem and der add Funktion ist dass die zweite Eingabe erst beim zweiten + überschrieben wird
     #daher muss ein counter schon bei der Zahleneingabe übergeben werden um Eingabe zwei abzufangen
@@ -99,12 +107,13 @@ class MainWindow(QtWidgets.QMainWindow):
             zahl0 = self.concat(self.ui.Display.intValue(), 0)
             self.ui.Display.display(zahl0)
 
+        if self.counter == 1 and self.operator == "logxy":
+            self.ui.Display.display(0)
+            self.counter = 0
         if self.counter == 1:
             self.ui.Display.display(0)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv" or self.operator == "e^x":
-            self.ui.Display.display(0)
-            self.on_istgleich_click()
+
 
 
 
@@ -113,12 +122,13 @@ class MainWindow(QtWidgets.QMainWindow):
             zahl1 = self.concat(self.ui.Display.intValue(), 1)
             self.ui.Display.display(zahl1)
 
+        if self.counter == 1 and self.operator == "logxy":
+            self.ui.Display.display(1)
+            self.counter = 0
         if self.counter == 1:
             self.ui.Display.display(1)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv" or self.operator == "e^x":
-            self.ui.Display.display(1)
-            self.on_istgleich_click()
+
 
 
     def on_zahl2_click(self):
@@ -126,12 +136,13 @@ class MainWindow(QtWidgets.QMainWindow):
             zahl2 = self.concat(self.ui.Display.intValue(), 2)
             self.ui.Display.display(zahl2)
 
+        if self.counter == 1 and self.operator == "logxy":
+            self.ui.Display.display(2)
+            self.counter = 0
         if self.counter == 1:
             self.ui.Display.display(2)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv" or self.operator == "e^x":
-            self.ui.Display.display(2)
-            self.on_istgleich_click()
+
 
 
     def on_zahl3_click(self):
@@ -139,12 +150,13 @@ class MainWindow(QtWidgets.QMainWindow):
             zahl3 = self.concat(self.ui.Display.intValue(), 3)
             self.ui.Display.display(zahl3)
 
+        if self.counter == 1 and self.operator == "logxy":
+            self.ui.Display.display(3)
+            self.counter = 0
         if self.counter == 1:
             self.ui.Display.display(3)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv" or self.operator == "e^x":
-            self.ui.Display.display(3)
-            self.on_istgleich_click()
+
 
 
     def on_zahl4_click(self):
@@ -152,12 +164,13 @@ class MainWindow(QtWidgets.QMainWindow):
             zahl4 = self.concat(self.ui.Display.intValue(), 4)
             self.ui.Display.display(zahl4)
 
+        if self.counter == 1 and self.operator == "logxy":
+            self.ui.Display.display(4)
+            self.counter = 0
         if self.counter == 1:
             self.ui.Display.display(4)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv" or self.operator == "e^x":
-            self.ui.Display.display(4)
-            self.on_istgleich_click()
+
 
 
     def on_zahl5_click(self):
@@ -165,12 +178,13 @@ class MainWindow(QtWidgets.QMainWindow):
             zahl5 = self.concat(self.ui.Display.intValue(), 5)
             self.ui.Display.display(zahl5)
 
+        if self.counter == 1 and self.operator == "logxy":
+            self.ui.Display.display(5)
+            self.counter = 0
         if self.counter == 1:
             self.ui.Display.display(5)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv" or self.operator == "e^x":
-            self.ui.Display.display(5)
-            self.on_istgleich_click()
+
 
 
 
@@ -179,12 +193,12 @@ class MainWindow(QtWidgets.QMainWindow):
             zahl6 = self.concat(self.ui.Display.intValue(), 6)
             self.ui.Display.display(zahl6)
 
+        if self.counter == 1 and self.operator == "logxy":
+            self.ui.Display.display(6)
+            self.counter = 0
         if self.counter == 1:
             self.ui.Display.display(6)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv" or self.operator == "e^x":
-            self.ui.Display.display(6)
-            self.on_istgleich_click()
 
 
 
@@ -193,12 +207,13 @@ class MainWindow(QtWidgets.QMainWindow):
             zahl7 = self.concat(self.ui.Display.intValue(), 7)
             self.ui.Display.display(zahl7)
 
+        if self.counter == 1 and self.operator == "logxy":
+            self.ui.Display.display(7)
+            self.counter = 0
         if self.counter == 1:
             self.ui.Display.display(7)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv" or self.operator == "e^x":
-            self.ui.Display.display(7)
-            self.on_istgleich_click()
+
 
 
     def on_zahl8_click(self):
@@ -208,12 +223,13 @@ class MainWindow(QtWidgets.QMainWindow):
             zahl8 = self.concat(self.ui.Display.intValue(),8)
             self.ui.Display.display(zahl8)
 
+        if self.counter == 1 and self.operator == "logxy":
+            self.ui.Display.display(8)
+            self.counter = 0
         if self.counter == 1:
             self.ui.Display.display(8)
             self.counter = 0
-        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv" or self.operator == "e^x":
-            self.ui.Display.display(8)
-            self.on_istgleich_click()
+
 
 
 
@@ -223,14 +239,15 @@ class MainWindow(QtWidgets.QMainWindow):
             zahl9 = self.concat(self.ui.Display.intValue(), 9)
             self.ui.Display.display(zahl9)
 
+        if self.counter == 1 and self.operator == "logxy":
+            self.ui.Display.display(9)
+            self.counter = 0
         if self.counter == 1:
             self.ui.Display.display(9)
             self.counter = 0
 
-        if self.operator == "pow-" or self.operator == "pow" or self.operator == "ggt" or self.operator == "kgv" or self.operator == "e^x":
 
-            self.ui.Display.display(9)
-            self.on_istgleich_click()
+
 
     #Grundfunktionen
 
@@ -251,12 +268,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
 
     def on_subtraktion_click(self):
-        if self.operator == "pow":
-            self.operator+="-"
 
-
-
-        else:
             self.on_istgleich_click()
             self.operator = "-"
             self.counter = 1
@@ -271,8 +283,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.Eingabe1 = self.current_state_of_display()
 
-    def exceptionhandler(self):
-        self.ui.Display.display("hallo")
+
 
 
     def on_istgleich_click(self):
@@ -298,10 +309,7 @@ class MainWindow(QtWidgets.QMainWindow):
             else:
                 self.Result = self.Eingabe1 * self.Eingabe2
             self.ui.Display.display(self.Result)
-        elif self.operator == "pow-":
 
-            self.Result = self.Eingabe1 ** (0 - self.Eingabe2)
-            self.ui.Display.display(self.Result)
         elif self.operator == "ggt":
 
             self.Result = math.gcd(int(self.Eingabe1),int(self.Eingabe2))
@@ -322,12 +330,8 @@ class MainWindow(QtWidgets.QMainWindow):
             if self.Eingabe2 != 0:
                     self.Result = self.Eingabe1 / self.Eingabe2
                     self.ui.Display.display(self.Result)
-
-
-
-
-
-
+            if self.operator == "/" and int(self.Eingabe2) == 0:
+                self.ui.Display.display("Error")
 
         elif self.operator == "pow":
             if self.Result != 0:
@@ -346,11 +350,12 @@ class MainWindow(QtWidgets.QMainWindow):
 
             self.Result = self.Eingabe1**self.Eingabe2
             self.ui.Display.display(self.Result)
+        elif self.operator == "logxy":
+            self.ui.Display.display(math.log(self.Eingabe2,self.Eingabe1))
 
-        if self.operator == "/" and int(self.Eingabe2) == 0:
-            self.ui.Display.display("Error")
-        if self.operator != "pow":
-             self.resetInput()
+        self.resetInput()
+
+
         #self.ui.Display.display(self.ui.Display.value())
 
 #Speziell implementierte Funktionen
@@ -386,6 +391,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.operator = "nte"
         self.counter = 1
         self.Eingabe1 = self.ui.Display.value()
+    def on_drittewurzel_click(self):
+        self.ui.Display.display(self.nteWurzel(3,self.ui.Display.value()))
+    def on_viertewurzel_click(self):
+        self.ui.Display.display(self.nteWurzel(4,self.ui.Display.value()))
+
 
     def on_sinus_click(self):
         sin = self.ui.Display.value()
@@ -446,6 +456,34 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.Display.display("Error")
         else:
             self.ui.Display.display(1 / (self.ui.Display.value()))
+
+    def on_log10_click(self):
+        if self.ui.Display.value() == 0:
+            self.ui.Display.display("Error")
+        else:
+            self.ui.Display.display(math.log10(self.ui.Display.value()))
+
+    def on_natlog_click(self):
+        if self.ui.Display.value() == 0:
+            self.ui.Display.display("Error")
+        else:
+            self.ui.Display.display(math.log(self.ui.Display.value()))
+
+    def on_logxy_click(self):
+        if self.ui.Display.value() == 0:
+            self.ui.Display.display("Error")
+        else:
+            self.counter = 1
+            self.operator = "logxy"
+            self.Eingabe1=self.ui.Display.value()
+
+    def on_prozent_click(self):
+        if self.Eingabe1 == 0:
+            self.ui.Display.display(self.ui.Display.value()/100)
+        else:
+            self.ui.Display.display((self.Eingabe1/100)*self.ui.Display.value())
+
+
 
 
 
