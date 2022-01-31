@@ -87,6 +87,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.eulerhochx.clicked.connect(self.on_eulerhochx_click)
         self.ui.negation.clicked.connect(self.on_negation_click)
         self.ui.betrag.clicked.connect(self.on_betrag_click)
+        self.ui.standardhyperbel.clicked.connect(self.on_standardhyperbel_click)
 
     # Methoden die die Eingaben von Zahlen hintereinader ermöglichen
     #Problem and der add Funktion ist dass die zweite Eingabe erst beim zweiten + überschrieben wird
@@ -318,13 +319,16 @@ class MainWindow(QtWidgets.QMainWindow):
             if self.Result != 0:
                 self.Result /= self.Eingabe1
 
-            if self.Eingabe1 != 0 and self. Eingabe2 != 0:
-                    self.Result = self.Eingabe1 / self.Eingabe2
-            else:
-                pass
-
             if self.Eingabe2 != 0:
-                self.ui.Display.display(self.Result)
+                    self.Result = self.Eingabe1 / self.Eingabe2
+                    self.ui.Display.display(self.Result)
+
+
+
+
+
+
+
         elif self.operator == "pow":
             if self.Result != 0:
                 self.Result = math.pow(self.Result, self.Eingabe1)
@@ -343,10 +347,11 @@ class MainWindow(QtWidgets.QMainWindow):
             self.Result = self.Eingabe1**self.Eingabe2
             self.ui.Display.display(self.Result)
 
-
+        if self.operator == "/" and int(self.Eingabe2) == 0:
+            self.ui.Display.display("Error")
         if self.operator != "pow":
-            self.resetInput()
-        self.ui.Display.display(self.ui.Display.value())
+             self.resetInput()
+        #self.ui.Display.display(self.ui.Display.value())
 
 #Speziell implementierte Funktionen
     def on_fak_click(self):
@@ -436,7 +441,11 @@ class MainWindow(QtWidgets.QMainWindow):
 
 
 
-
+    def on_standardhyperbel_click(self):
+        if self.ui.Display.value() == 0:
+            self.ui.Display.display("Error")
+        else:
+            self.ui.Display.display(1 / (self.ui.Display.value()))
 
 
 
