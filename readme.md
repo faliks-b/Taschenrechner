@@ -1,5 +1,7 @@
 Calculator
 
+Implementiert in Python
+
 Graphischer Taschenrechner zur Berechnung
 der Grundrechenarten ohne die Verwendung von
 Klammerausdrücken. Weitere berechenbare Funk-
