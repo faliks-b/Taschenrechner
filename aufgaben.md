@@ -1,12 +1,14 @@
 
 
-logaristmusfunktionen beschriftungen
-ysqrt(n) beschriftung 
+noch offen:
 in allen funktionen Exponentialschreibweise ergänzen, wie bei fib und fak
 
 
 
 bereits erledigt:
+logaristmusfunktionen beschriftungen
+ysqrt(n) beschriftung 
+Beschriftungen hochgestellter operationen
 e implementiert
 e^x implementiert
 ggt implementiert
