@@ -360,13 +360,17 @@ class MainWindow(QtWidgets.QMainWindow):
 
 #Speziell implementierte Funktionen
     def on_fak_click(self):
-        fak = self.ui.Display.value()
-        fak = math.factorial(fak)
-        if fak > 2147483647:
-            fak = "{:e}".format(fak)
-            self.ui.Display.display(fak)
+        fak = int(self.ui.Display.value())
+
+        if fak < 0:
+            self.ui.Display.display("Error")
         else:
-            self.ui.Display.display(fak)
+            fak = math.factorial(fak)
+            if fak > 2147483647:
+                fak = "{:e}".format(fak)
+                self.ui.Display.display(fak)
+            else:
+                self.ui.Display.display(fak)
 
     def on_exp_click(self):
         exp = self.ui.Display.value()
@@ -410,14 +414,17 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_pi_click(self):
         self.ui.Display.display(math.pi)
     def on_fib_click(self):
-        fibo = self.ui.Display.value()
-        fibo = self.fib(fibo)
-
-        if fibo > 2147483647:
-            fibo = "{:e}".format(fibo)
-            self.ui.Display.display(fibo)
+        fibo = int(self.ui.Display.value())
+        if fibo < 0:
+            self.ui.Display.display("Error")
         else:
-            self.ui.Display.display(fibo)
+            fibo = self.fib(fibo)
+
+            if fibo > 2147483647:
+                fibo = "{:e}".format(fibo)
+                self.ui.Display.display(fibo)
+            else:
+                self.ui.Display.display(fibo)
     def on_ggt_click(self):
         self.operator = "ggt"
         self.counter = 1

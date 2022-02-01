@@ -16,6 +16,8 @@ x/- implementiert
 betrag implementiert
 1/x: 1/übergabeparameter implementiert
 Division durch 0 abdecken implementiert
+fak fall < 0 und kommazahl implementiert
+fib fall < 0 und kommazahl implementiert
 dritte wurzel implementiert
 vierte wurzel implementiert
 log10 implementiert
