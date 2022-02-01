@@ -1,7 +1,7 @@
 import cmath
 import sys
 import math
-#from fibonacci_class import Fibonacci
+
 
 import time
 from typing import List, Any
@@ -341,17 +341,30 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.Result = math.pow(self.Eingabe1, self.Eingabe2)
             self.ui.Display.display(self.Result)
         elif self.operator == "nte":
+
             if self.Result != 0:
-                self.Result = self.nteWurzel(self.Result, self.Eingabe1)
+                if self.Result <=4:
+                    self.ui.Display.display("Error")
+                else:
+                    self.Result = self.nteWurzel(self.Result, self.Eingabe1)
+                    self.ui.Display.display(self.Result)
             else:
-                self.Result = self.nteWurzel(self.Eingabe1, self.Eingabe2)
-            self.ui.Display.display(self.Result)
+                if int(self.Eingabe1) <= 4:
+
+                    self.ui.Display.display("Error")
+                else:
+                    self.Result = self.nteWurzel(self.Eingabe1, self.Eingabe2)
+                    self.ui.Display.display(self.Result)
         elif self.operator == "e^x":
 
             self.Result = self.Eingabe1**self.Eingabe2
             self.ui.Display.display(self.Result)
         elif self.operator == "logxy":
-            self.ui.Display.display(math.log(self.Eingabe2,self.Eingabe1))
+            if self.Eingabe2 <= 0:
+                self.ui.Display.display("Error")
+
+            else:
+                self.ui.Display.display(math.log(self.Eingabe2,self.Eingabe1))
 
         self.resetInput()
 
@@ -465,19 +478,19 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.Display.display(1 / (self.ui.Display.value()))
 
     def on_log10_click(self):
-        if self.ui.Display.value() == 0:
+        if self.ui.Display.value() <= 0:
             self.ui.Display.display("Error")
         else:
             self.ui.Display.display(math.log10(self.ui.Display.value()))
 
     def on_natlog_click(self):
-        if self.ui.Display.value() == 0:
+        if self.ui.Display.value() <= 0:
             self.ui.Display.display("Error")
         else:
             self.ui.Display.display(math.log(self.ui.Display.value()))
 
     def on_logxy_click(self):
-        if self.ui.Display.value() == 0:
+        if self.ui.Display.value() <= 0:
             self.ui.Display.display("Error")
         else:
             self.counter = 1
